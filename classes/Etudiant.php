@@ -1,5 +1,5 @@
 <?php
-class Etudiant
+Class Etudiant
 {
     private $nom;
     private $prenom;
@@ -8,10 +8,12 @@ class Etudiant
 
     public function __construct($nom, $prenom, $matricule)
     {
-
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setMatricule($matricule);
+    }
+    public function getId(){
+        return $this->id;
     }
     public function getNom()
     {
@@ -49,7 +51,26 @@ class Etudiant
         }
         $this->matricule = $matricule;
     }
+
 };
+// try{
+//     $identite = new Etudiant("Dupont", "Jean", 246);
+//     echo $identite->getNom();
+// } catch (\Exception $e){
+//     echo "Erreur : " . $e->getMessage(); 
+// }
+// try{
+//     $identite = new Etudiant("Dupont", "Jean", 246);
+//     echo $identite->getPrenom();
+// } catch (\Exception $e){
+//     echo "Erreur : " . $e->getMessage(); 
+// }
+// try{
+//     $identite = new Etudiant("Dupont", "Jean", 246);
+//     echo $identite->getMatricule();
+// } catch (\Exception $e){
+//     echo "Erreur : " . $e->getMessage(); 
+// }
    
 ?>
 
