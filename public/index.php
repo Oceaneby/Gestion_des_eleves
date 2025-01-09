@@ -22,31 +22,35 @@ $notes = $gestionNotes->listerNotes();
     <section>
         <h2>Liste des Étudiants</h2>
         <ul>
-            <?php foreach ($etudiants as $etudiant) : ?>
-                <li><?php echo $etudiant['nom'] . " " . $etudiant['prenom']; ?></li>
+            <?php foreach ($etudiants as $etudiant) :
+                $moyenne = $gestionNotes->calculerMoyenneEtudiant($etudiant['id']); ?>
+                <li>
+                    <?php echo htmlspecialchars($etudiant['nom']) . " " . htmlspecialchars($etudiant['prenom']); ?>
+                    - Moyenne : <?php echo number_format($moyenne, 2); ?>
+                </li>
             <?php endforeach; ?>
         </ul>
-        <a href="ajoutEtudiant.php">Ajouter un étudiant</a>
+        <a href="../classes/ajoutEtudiant.php">Ajouter un étudiant</a>
     </section>
 <!-- ********************* SECTION MATIERES *********************  -->
     <section>
         <h2>Liste des Matières</h2>
         <ul>
             <?php foreach ($matieres as $matiere) : ?>
-                <li><?php echo $matiere['nomMatiere']; ?></li>
+                <li><?php echo htmlspecialchars($matiere['nomMatiere']); ?></li>
             <?php endforeach; ?>
         </ul>
-        <a href="ajoutMatiere.php">Ajouter une matière</a>
+        <a href="../classes/ajoutMatiere.php">Ajouter une matière</a>
     </section>
 <!-- ****************** SECTION NOTES *********************************  -->
     <section>
         <h2>Liste des Notes</h2>
         <ul>
             <?php foreach ($notes as $note) : ?>
-                <li>Étudiant : <?php echo htmlspecialchars($note['nom']) . ' ' . htmlspecialchars($note['prenom']); ?> | Matière ID: <?php echo htmlspecialchars($note['nomMatiere']); ?> | Note: <?php echo $note['valeurNote']; ?></li>
+                <li>Étudiant : <?php echo htmlspecialchars($note['nom']) . ' ' . htmlspecialchars($note['prenom']); ?> | Matière : <?php echo htmlspecialchars($note['nomMatiere']); ?> | Note: <?php echo $note['valeurNote']; ?></li>
             <?php endforeach; ?>
         </ul>
-        <a href="attribuerNote.php">Attribuer une note</a>
+        <a href="../classes/attribuerNote.php">Attribuer une note</a>
     </section>
 
 </body>

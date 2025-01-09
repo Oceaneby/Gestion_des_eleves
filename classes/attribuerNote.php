@@ -23,19 +23,19 @@ $matieres = $gestionNotes->listerMatieres();
         <label for="idEtudiant">Étudiant:</label>
         <select name="idEtudiant" id="idEtudiant">
             <?php foreach ($etudiants as $etudiant) : ?>
-                <option value="<?php echo $etudiant['id']; ?>"><?php echo $etudiant['nom'] . " " . $etudiant['prenom']; ?></option>
+                <option value="<?php echo htmlspecialchars($etudiant['id']); ?>"><?php echo htmlspecialchars($etudiant['nom']) . " " . htmlspecialchars($etudiant['prenom']); ?></option>
             <?php endforeach; ?>
         </select><br>
 
         <label for="idMatiere">Matière:</label>
         <select name="idMatiere" id="idMatiere">
             <?php foreach ($matieres as $matiere) : ?>
-                <option value="<?php echo $matiere['id']; ?>"><?php echo $matiere['nomMatiere']; ?></option>
+                <option value="<?php echo htmlspecialchars($matiere['id']); ?>"><?php echo htmlspecialchars($matiere['nomMatiere']); ?></option>
             <?php endforeach; ?>
         </select><br>
 
         <label for="valeurNote">Note:</label>
-        <input type="number" id="valeurNote" name="valeurNote" min="0" max="20"><br>
+        <input type="number" id="valeurNote" name="valeurNote"><br>
 
         <button type="submit">Attribuer la Note</button>
     </form>

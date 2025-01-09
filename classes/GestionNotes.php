@@ -64,7 +64,7 @@ class GestionNotes
     public function calculerMoyenneEtudiant($idEtudiant){
 
         try{ 
-        $stmt = $this->pdo->prepare("SELECT AVG(note) AS moyenne FROM notes WHERE id_etudiant = ?");
+        $stmt = $this->pdo->prepare("SELECT AVG(valeurNote) AS moyenne FROM notes WHERE id_etudiant = ?");
         $stmt->execute([
             $idEtudiant
         ]);
@@ -76,12 +76,12 @@ class GestionNotes
     }
     }
     public function listerEtudiants(){
-        $stmt = $this->pdo->prepare("SELECT * FROM etudiants");
+        $stmt = $this->pdo->prepare("SELECT * FROM etudiants ORDER BY nom ASC, prenom ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function listerMatieres(){
-        $stmt = $this->pdo->prepare("SELECT * FROM matieres");
+        $stmt = $this->pdo->prepare("SELECT * FROM matieres ORDER BY nomMatiere ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -91,10 +91,11 @@ class GestionNotes
          etudiants.nom,
          etudiants.prenom,
          matieres.nomMatiere,
-         notes.note
+         notes.valeurNote
           FROM notes
           JOIN etudiants ON notes.id_etudiant = etudiants.id
-          JOIN matieres ON notes.id_matiere = matieres.id");
+          JOIN matieres ON notes.id_matiere = matieres.id
+          ORDER BY etudiants.nom ASC, matieres.nomMatiere ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
