@@ -1,8 +1,8 @@
 <?php
 
-require_once '../Includes/config.php';
-require_once '../classes/GestionNotes.php';
 
+require_once '../classes/GestionNotes.php';
+session_start();
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
         die('Requête CSRF détectée.');
@@ -12,15 +12,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $prenom = trim($_POST['prenom']);
         $matricule = trim($_POST['matricule']);
 
-        if (empty($nom) || empty($prenom) || empty($matricule)) {
-            die('Tous les champs doivent être remplis.');
-        }
+        $etudiant = new Etudiant($nom, $prenom, $matricule);
 
         $gestionNotes = new GestionNotes();
-        $gestionNotes->ajouterEtudiant($nom, $prenom, $matricule);
+        try{ 
+        $gestionNotes->ajouterEtudiant($etudiant);
 
         header('Location: index.php');
         exit();
+        }catch(Exception $e){
+            die("Erreur lors que l'ajout de l'étudiant : " . $e->getMessage());
+        }
     }else{
         die('Tous les champs requis ne sont pas définis.');
     }

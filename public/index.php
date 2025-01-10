@@ -17,10 +17,10 @@ $notes = $gestionNotes->listerNotes();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Notes</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
 </head>
 <body>
-    <h1>Gestion des Élèves</h1>
+    <h1 class="mb-12 text-center text-3xl md:text-4xl font-bold leading-tight text-pink-700">Gestion des Élèves</h1>
 <!-- ************* SECTION ETUDIANTS *********************  -->
     <section>
         <h2>Liste des Étudiants</h2>
@@ -33,7 +33,7 @@ $notes = $gestionNotes->listerNotes();
                 </li>
             <?php endforeach; ?>
         </ul>
-        <a href="../classes/ajoutEtudiant.php">Ajouter un étudiant</a>
+        <a href="../public/ajoutEtudiant.php">Ajouter un étudiant</a>
     </section>
 <!-- ********************* SECTION MATIERES *********************  -->
     <section>
@@ -43,7 +43,7 @@ $notes = $gestionNotes->listerNotes();
                 <li><?php echo htmlspecialchars($matiere['nomMatiere']); ?></li>
             <?php endforeach; ?>
         </ul>
-        <a href="../classes/ajoutMatiere.php">Ajouter une matière</a>
+        <a href="../public/ajoutMatiere.php">Ajouter une matière</a>
     </section>
 <!-- ****************** SECTION NOTES *********************************  -->
     <section>
@@ -53,7 +53,7 @@ $notes = $gestionNotes->listerNotes();
                 <li>Étudiant : <?php echo htmlspecialchars($note['nom']) . ' ' . htmlspecialchars($note['prenom']); ?> | Matière : <?php echo htmlspecialchars($note['nomMatiere']); ?> | Note: <?php echo htmlspecialchars($note['valeurNote']); ?></li>
             <?php endforeach; ?>
         </ul>
-        <a href="../classes/attribuerNote.php">Attribuer une note</a>
+        <a href="../public/attribuerNote.php">Attribuer une note</a>
     </section>
 
 </body>

@@ -1,7 +1,7 @@
 <?php
 require_once '../Includes/config.php';
-require_once 'GestionNotes.php';
 
+require_once '../classes/GestionNotes.php';
 $gestionNotes = new GestionNotes();
 
 $etudiants = $gestionNotes->listerEtudiants();
@@ -16,7 +16,7 @@ $matieres = $gestionNotes->listerMatieres();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attribuer une Note</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
     <h1>Attribuer une Note</h1>

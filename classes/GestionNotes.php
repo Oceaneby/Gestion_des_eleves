@@ -1,6 +1,10 @@
 <?php
 
 require_once '../Includes/Database.php';
+require_once 'Etudiant.php';
+require_once 'Matiere.php';
+require_once 'Notes.php';
+
 class GestionNotes
 {
     private $pdo;
@@ -11,39 +15,30 @@ class GestionNotes
         $this->pdo = Database::getConnection();
     }
 
-    public function ajouterEtudiant($nom, $prenom, $matricule)
+    public function ajouterEtudiant(Etudiant $etudiant)
     {
-        if (empty($nom) || empty($prenom) || empty($matricule)) {
-            echo "Erreur : Tous les champs sont requis.";
-            return;
-        }
-
         try {
 
             $stmt = $this->pdo->prepare("INSERT INTO etudiants (nom, prenom, matricule) VALUES (:nom, :prenom, :matricule)");
             $stmt->execute([
-                'nom' => $nom,
-                'prenom' => $prenom,
-                'matricule' => $matricule
+                ':nom' => $etudiant->getNom(),
+                ':prenom' => $etudiant->getPrenom(),
+                ':matricule' => $etudiant->getMatricule(),
             ]);
             echo "L'étudiant a été ajoué avec succès.";
         } catch (Exception $e) {
             echo "Erreur lors de l'ajout de l'étudiant :" . $e->getMessage();
         }
     }
-    public function ajouterMatiere($nomMatiere, $codeMatiere)
+    public function ajouterMatiere(Matiere $matiere)
     {
-        if (empty($nomMatiere) || empty($codeMatiere)) {
-            echo "Erreur : Tous les champs sont requis.";
-            return;
-        }
-
+    
         try {
 
             $stmt = $this->pdo->prepare("INSERT INTO matieres (nomMatiere, codeMatiere) VALUES (:nomMatiere, :codeMatiere)");
             $stmt->execute([
-                'nomMatiere' => $nomMatiere,
-                'codeMatiere' => $codeMatiere
+                ':nomMatiere' => $matiere->getNomMatiere(),
+                ':codeMatiere' => $matiere->getCodeMatiere(),
             ]);
             echo "La matière est ajouter avec succès";
         } catch (Exception $e) {
@@ -51,20 +46,16 @@ class GestionNotes
         }
     }
 
-    public function attribuerNote($idEtudiant, $idMatiere, $valeurNote)
+    public function attribuerNote(Note $note)
     {
         
-        if ($valeurNote < 0 || $valeurNote > 20) {
-            echo "Erreur : la note doit être entre 0 et 20";
-            return;
-        }
         try {
 
             $stmt = $this->pdo->prepare("INSERT INTO notes (id_etudiant, id_matiere, valeurNote) VALUES (?, ?, ?)");
             $stmt->execute([
-                $idEtudiant,
-                $idMatiere,
-                $valeurNote
+                 $note->getIdEtudiant(),
+                $note->getIdMatiere(),
+                $note->getValeurNote(),
             ]);
             echo "La note est ajouter avec succès.";
         } catch (Exception $e) {

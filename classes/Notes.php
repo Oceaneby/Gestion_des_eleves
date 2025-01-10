@@ -51,21 +51,21 @@ Class Note {
         $this->valeurNote = $valeurNote;
     }
 }
-try {
+// try {
     
-    $note = new Note(15);  
-    $note->setIdEtudiant(1);  
-    $note->setIdMatiere(3);   
+//     $note = new Note(15);  
+//     $note->setIdEtudiant(1);  
+//     $note->setIdMatiere(3);   
 
     
-    echo "Note créée avec succès.";
-    echo "ID Etudiant : " . $note->getIdEtudiant() . "\n";
-    echo "ID Matière : " . $note->getIdMatiere() . "\n";
-    echo "Valeur de la note : " . $note->getValeurNote() . "\n";
+//     echo "Note créée avec succès.";
+//     echo "ID Etudiant : " . $note->getIdEtudiant() . "\n";
+//     echo "ID Matière : " . $note->getIdMatiere() . "\n";
+//     echo "Valeur de la note : " . $note->getValeurNote() . "\n";
 
-} catch (\Exception $e) {
+// } catch (\Exception $e) {
     
-    echo "Erreur : " . $e->getMessage() . "\n";
-}
+//     echo "Erreur : " . $e->getMessage() . "\n";
+// }
 
 ?>

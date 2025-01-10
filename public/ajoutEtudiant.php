@@ -1,8 +1,5 @@
 <?php
-require_once '../classes/GestionNotes.php';
 require_once '../Includes/config.php';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +9,14 @@ require_once '../Includes/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/styles.css">
 </head>
 
 <body>
     <h1>Gestion des Élèves</h1>
     <h2>Ajouter un Étudiant</h2>
     <div>
-        <form action="../public/traitementEtudiant.php" method="POST">
+        <form action="traitementEtudiant.php" method="POST">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'];?>">
 
             <label for="prenom">Prénom :</label>
