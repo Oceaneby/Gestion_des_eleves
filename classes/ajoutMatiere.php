@@ -1,3 +1,9 @@
+<?php
+require_once '../classes/GestionNotes.php';
+require_once '../Includes/config.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +19,8 @@
     <h2>Ajouter une Matière</h2>
     <div>
         <form action="../public/traitementMatiere.php" method="POST">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'];?>">
+
             <label for="nomMatiere">Nom matière :</label>
             <input type="text" id="nomMatiere" name="nomMatiere" placeholder="Entrez le nom de la matière">
 

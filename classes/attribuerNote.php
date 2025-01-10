@@ -1,5 +1,7 @@
 <?php
+require_once '../Includes/config.php';
 require_once 'GestionNotes.php';
+
 $gestionNotes = new GestionNotes();
 
 $etudiants = $gestionNotes->listerEtudiants();
@@ -20,6 +22,8 @@ $matieres = $gestionNotes->listerMatieres();
     <h1>Attribuer une Note</h1>
 
     <form action="../public/traitementNote.php" method="POST">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'];?>">
+    
         <label for="idEtudiant">Étudiant:</label>
         <select name="idEtudiant" id="idEtudiant">
             <?php foreach ($etudiants as $etudiant) : ?>

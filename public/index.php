@@ -1,5 +1,6 @@
 <?php
 
+require_once '../Includes/config.php';
 require_once '../classes/GestionNotes.php';
 $gestionNotes = new GestionNotes();
 $etudiants = $gestionNotes->listerEtudiants();
@@ -17,7 +18,7 @@ $notes = $gestionNotes->listerNotes();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Gestion des Notes</h1>
+    <h1>Gestion des Élèves</h1>
 <!-- ************* SECTION ETUDIANTS *********************  -->
     <section>
         <h2>Liste des Étudiants</h2>

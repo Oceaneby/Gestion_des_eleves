@@ -1,3 +1,12 @@
+<?php
+require_once '../classes/GestionNotes.php';
+require_once '../Includes/config.php';
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +22,8 @@
     <h2>Ajouter un Étudiant</h2>
     <div>
         <form action="../public/traitementEtudiant.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'];?>">
+
             <label for="prenom">Prénom :</label>
             <input type="text" id="prenom" name="prenom" placeholder="Entrez le prénom">
 
