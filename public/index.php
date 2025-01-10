@@ -6,6 +6,8 @@ $gestionNotes = new GestionNotes();
 $etudiants = $gestionNotes->listerEtudiants();
 $matieres = $gestionNotes->listerMatieres();
 $notes = $gestionNotes->listerNotes();
+// echo '<pre>';
+// var_dump($gestionNotes);
 ?>
 
 
@@ -48,7 +50,7 @@ $notes = $gestionNotes->listerNotes();
         <h2>Liste des Notes</h2>
         <ul>
             <?php foreach ($notes as $note) : ?>
-                <li>Étudiant : <?php echo htmlspecialchars($note['nom']) . ' ' . htmlspecialchars($note['prenom']); ?> | Matière : <?php echo htmlspecialchars($note['nomMatiere']); ?> | Note: <?php echo $note['valeurNote']; ?></li>
+                <li>Étudiant : <?php echo htmlspecialchars($note['nom']) . ' ' . htmlspecialchars($note['prenom']); ?> | Matière : <?php echo htmlspecialchars($note['nomMatiere']); ?> | Note: <?php echo htmlspecialchars($note['valeurNote']); ?></li>
             <?php endforeach; ?>
         </ul>
         <a href="../classes/attribuerNote.php">Attribuer une note</a>

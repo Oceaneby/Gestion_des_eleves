@@ -13,6 +13,11 @@ class GestionNotes
 
     public function ajouterEtudiant($nom, $prenom, $matricule)
     {
+        if (empty($nom) || empty($prenom) || empty($matricule)) {
+            echo "Erreur : Tous les champs sont requis.";
+            return;
+        }
+
         try {
 
             $stmt = $this->pdo->prepare("INSERT INTO etudiants (nom, prenom, matricule) VALUES (:nom, :prenom, :matricule)");
@@ -28,6 +33,11 @@ class GestionNotes
     }
     public function ajouterMatiere($nomMatiere, $codeMatiere)
     {
+        if (empty($nomMatiere) || empty($codeMatiere)) {
+            echo "Erreur : Tous les champs sont requis.";
+            return;
+        }
+
         try {
 
             $stmt = $this->pdo->prepare("INSERT INTO matieres (nomMatiere, codeMatiere) VALUES (:nomMatiere, :codeMatiere)");
@@ -43,6 +53,7 @@ class GestionNotes
 
     public function attribuerNote($idEtudiant, $idMatiere, $valeurNote)
     {
+        
         if ($valeurNote < 0 || $valeurNote > 20) {
             echo "Erreur : la note doit être entre 0 et 20";
             return;
@@ -75,6 +86,7 @@ class GestionNotes
         return 0;
     }
     }
+    
     public function listerEtudiants(){
         $stmt = $this->pdo->prepare("SELECT * FROM etudiants ORDER BY nom ASC, prenom ASC");
         $stmt->execute();

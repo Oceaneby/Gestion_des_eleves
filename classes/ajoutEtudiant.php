@@ -3,8 +3,6 @@ require_once '../classes/GestionNotes.php';
 require_once '../Includes/config.php';
 
 
-
-
 ?>
 
 <!DOCTYPE html>
