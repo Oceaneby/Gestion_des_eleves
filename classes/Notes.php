@@ -8,11 +8,13 @@ Class Note {
     private $valeurNote;
 
     
-    public function __construct($valeurNote) {
+    public function __construct($idEtudiant, $idMatiere, $valeurNote) {
         if (!is_numeric($valeurNote) || $valeurNote < 0 || $valeurNote > 20) {
             throw new \Exception("La valeur de la note doit être un nombre entre 0 et 20.");
         }
-        $this->valeurNote = $valeurNote;
+        $this->setIdEtudiant($idEtudiant);
+        $this->setIdMatiere($idMatiere);
+        $this->setValeurNote($valeurNote);
     }
 
    

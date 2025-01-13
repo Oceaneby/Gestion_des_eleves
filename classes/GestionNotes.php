@@ -1,9 +1,12 @@
 <?php
 
 require_once '../Includes/Database.php';
+require_once 'Personne.php';
 require_once 'Etudiant.php';
 require_once 'Matiere.php';
+require_once 'MatiereSur10.php';
 require_once 'Notes.php';
+
 
 class GestionNotes
 {
@@ -53,7 +56,7 @@ class GestionNotes
 
             $stmt = $this->pdo->prepare("INSERT INTO notes (id_etudiant, id_matiere, valeurNote) VALUES (?, ?, ?)");
             $stmt->execute([
-                 $note->getIdEtudiant(),
+                $note->getIdEtudiant(),
                 $note->getIdMatiere(),
                 $note->getValeurNote(),
             ]);

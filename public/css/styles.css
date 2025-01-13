@@ -553,3 +553,21 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
+
+.static {
+  position: static;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
+}
+
+.text-pink-700 {
+  --tw-text-opacity: 1;
+  color: rgb(190 24 93 / var(--tw-text-opacity, 1));
+}

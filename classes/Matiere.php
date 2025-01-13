@@ -1,9 +1,9 @@
 <?php
 
 Class Matiere{
-    private $id;
-    private $nomMatiere;
-    private $codeMatiere;
+    protected $id;
+    protected $nomMatiere;
+    protected $codeMatiere;
 
     public function __construct($nomMatiere, $codeMatiere)
     {
@@ -34,6 +34,10 @@ Class Matiere{
             throw new \Exception("Le nom ne peut pas être vide");
         }
         $this->codeMatiere = $codeMatiere;
+    }
+    public function afficherNote()
+    {
+        echo "La note de la matière " . $this->getNomMatiere() . " (Code : " . $this->getCodeMatiere() . ") est : ";
     }
 };
 

@@ -17,7 +17,7 @@ $notes = $gestionNotes->listerNotes();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Notes</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <!-- <link rel="stylesheet" href="./css/styles.css"> -->
 </head>
 <body>
     <h1 class=" text-orange-500">Gestion des Élèves</h1>

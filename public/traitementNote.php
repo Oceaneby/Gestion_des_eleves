@@ -15,9 +15,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $gestionNotes = new GestionNotes();
         try{ 
         $gestionNotes->attribuerNote($note);
-
-        header('Location: index.php');
-        exit();
+            
+        // header('Location: accueil.php');
+        // exit();
         }catch(Exception $e){
             die("Erreur lors de l'attribution de la note : " . $e->getMessage());
         }

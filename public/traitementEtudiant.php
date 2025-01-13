@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         try{ 
         $gestionNotes->ajouterEtudiant($etudiant);
 
-        header('Location: index.php');
+        header('Location: accueil.php');
         exit();
         }catch(Exception $e){
             die("Erreur lors que l'ajout de l'étudiant : " . $e->getMessage());
