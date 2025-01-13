@@ -25,6 +25,9 @@ require_once '../Includes/config.php';
 
             <label for="codeMatiere">Code matière :</label>
             <input type="text" id="codeMatiere" name="codeMatiere"  placeholder="Entrez le code de la matière">
+
+            <label for="bareme">Bareme :</label>
+            <input type="number" id="bareme" name="bareme"  placeholder="Entrez le bareme">
             
             <button type="submit">Ajouter la Matière</button>
         </form>

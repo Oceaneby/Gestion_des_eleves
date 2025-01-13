@@ -5,6 +5,7 @@ require_once 'Personne.php';
 require_once 'Etudiant.php';
 require_once 'Matiere.php';
 require_once 'MatiereSur10.php';
+require_once 'MatiereSur20.php';
 require_once 'Notes.php';
 
 
@@ -37,11 +38,13 @@ class GestionNotes
     {
     
         try {
-
-            $stmt = $this->pdo->prepare("INSERT INTO matieres (nomMatiere, codeMatiere) VALUES (:nomMatiere, :codeMatiere)");
+           
+            $stmt = $this->pdo->prepare("INSERT INTO matieres (nomMatiere, codeMatiere, bareme) VALUES (:nomMatiere, :codeMatiere, :bareme)");
             $stmt->execute([
                 ':nomMatiere' => $matiere->getNomMatiere(),
                 ':codeMatiere' => $matiere->getCodeMatiere(),
+                ':bareme' => $matiere->getBareme()
+                
             ]);
             echo "La matière est ajouter avec succès";
         } catch (Exception $e) {
@@ -59,6 +62,7 @@ class GestionNotes
                 $note->getIdEtudiant(),
                 $note->getIdMatiere(),
                 $note->getValeurNote(),
+                
             ]);
             echo "La note est ajouter avec succès.";
         } catch (Exception $e) {

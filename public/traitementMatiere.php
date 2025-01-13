@@ -7,12 +7,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
         die('Requête CSRF détectée.');
     }
-    if (isset($_POST['nomMatiere']) && isset($_POST['codeMatiere'])){ 
+    if (isset($_POST['nomMatiere']) && isset($_POST['codeMatiere']) && isset($_POST['bareme'])){ 
+
         $nomMatiere = trim($_POST['nomMatiere']);
         $codeMatiere = trim($_POST['codeMatiere']);
+        $bareme = trim($_POST['bareme']);
 
-        $matiere = new Matiere($nomMatiere, $codeMatiere);
+        
         $gestionNotes = new GestionNotes();
+
+        if((int)$bareme === 10){
+          $matiere = new MatiereSur10($nomMatiere, $codeMatiere);
+        }else{
+            $matiere = new MatiereSur20($nomMatiere, $codeMatiere);
+        }
+
+        
         try{ 
             $gestionNotes->ajouterMatiere($matiere);
             

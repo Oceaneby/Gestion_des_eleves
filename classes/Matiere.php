@@ -1,14 +1,16 @@
 <?php
 
-Class Matiere{
+abstract Class Matiere{
     protected $id;
     protected $nomMatiere;
     protected $codeMatiere;
+    protected $bareme;
 
-    public function __construct($nomMatiere, $codeMatiere)
+    public function __construct($nomMatiere, $codeMatiere, $bareme)
     {
         $this->setNomMatiere($nomMatiere);
         $this->setCodeMatiere($codeMatiere);
+        $this->bareme = $bareme;
     }
     public function getId(){
         return $this->id;
@@ -35,10 +37,11 @@ Class Matiere{
         }
         $this->codeMatiere = $codeMatiere;
     }
-    public function afficherNote()
-    {
-        echo "La note de la matière " . $this->getNomMatiere() . " (Code : " . $this->getCodeMatiere() . ") est : ";
+    public function getBareme(){
+        return $this->bareme;
     }
+    abstract public function validerNote($valeurNote): bool;
+    
 };
 
 // try{
