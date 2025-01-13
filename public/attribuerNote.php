@@ -44,6 +44,6 @@ $matieres = $gestionNotes->listerMatieres();
         <button type="submit">Attribuer la Note</button>
     </form>
 
-    <a href="../public/index.php">Retour à l'accueil</a>
+    <a href="../public/accueil.php">Retour à l'accueil</a>
 </body>
 </html>

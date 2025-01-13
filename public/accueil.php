@@ -17,13 +17,13 @@ $notes = $gestionNotes->listerNotes();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Notes</title>
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <h1 class="mb-12 text-center text-3xl md:text-4xl font-bold leading-tight text-pink-700">Gestion des Élèves</h1>
+    <h1 class=" text-orange-500">Gestion des Élèves</h1>
 <!-- ************* SECTION ETUDIANTS *********************  -->
     <section>
-        <h2>Liste des Étudiants</h2>
+        <h2 class=" text-pink-700">Liste des Étudiants</h2>
         <ul>
             <?php foreach ($etudiants as $etudiant) :
                 $moyenne = $gestionNotes->calculerMoyenneEtudiant($etudiant['id']); ?>

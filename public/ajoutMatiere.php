@@ -28,7 +28,7 @@ require_once '../Includes/config.php';
             
             <button type="submit">Ajouter la Matière</button>
         </form>
-        <a href="../public/index.php">Retour à l'accueil</a>
+        <a href="../public/accueil.php">Retour à l'accueil</a>
     </div>
 </body>
 
